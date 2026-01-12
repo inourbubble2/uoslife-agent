@@ -11,8 +11,10 @@ class Announcement(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     announcement_id: Mapped[int] = mapped_column(Integer, unique=True)
-    title: Mapped[str] = mapped_column(String(255))
+    author: Mapped[str] = mapped_column(String(255))
+    board: Mapped[str] = mapped_column(String(255))
     body: Mapped[str | None] = mapped_column(Text)
-    ocr_text: Mapped[str | None] = mapped_column(Text)
+    title: Mapped[str] = mapped_column(String(255))
+    major: Mapped[str | None] = mapped_column(String(255))
     url: Mapped[str | None] = mapped_column(String(255))
     written_at: Mapped[date | None] = mapped_column()
