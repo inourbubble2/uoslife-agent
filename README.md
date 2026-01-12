@@ -37,6 +37,22 @@ uv run pre-commit install
 uv run uvicorn app.main:app --reload
 ```
 
+### 5. Database Migration (Alembic)
+> **Note:** Migrations are applied **ONLY** to the **Agent Database**. The Source Database is read-only and managed separately.
+
+To manage database schema changes, use the following commands:
+
+```bash
+# Generate a new migration file (after modifying models)
+uv run alembic revision --autogenerate -m "description_of_changes"
+
+# Apply migrations to the database
+uv run alembic upgrade head
+```
+
+#### Docker Behavior
+When running via Docker (e.g., `docker run` or `docker compose`), the container is configured to **automatically apply pending migrations** (`alembic upgrade head`) before starting the application server. This ensures the database schema is always in sync with the application code.
+
 ## Docker
 
 ### Local Development (Recommended)
