@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/uoslife_agent"
+    SOURCE_DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/uoslife_apis"
 
     OPENAI_API_KEY: str = ""
 
