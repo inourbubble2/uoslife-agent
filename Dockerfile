@@ -20,6 +20,8 @@ WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
 
 COPY --chown=appuser:appgroup ./app ./app
+COPY --chown=appuser:appgroup ./alembic ./alembic
+COPY --chown=appuser:appgroup ./alembic.ini ./alembic.ini
 
 ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONPATH="/app:$PYTHONPATH"
@@ -28,4 +30,4 @@ EXPOSE 8000
 
 USER appuser
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
