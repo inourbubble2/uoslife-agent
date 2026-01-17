@@ -12,6 +12,7 @@ class Settings(BaseSettings):
 
     OPENAI_API_KEY: str = ""
     OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
+    OPENAI_CHAT_MODEL: str = "gpt-4.1-nano"
 
     LANGCHAIN_TRACING: bool = False
     LANGCHAIN_PROJECT: str = "uoslife-agent"
