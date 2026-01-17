@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     SOURCE_DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/uoslife_apis"
 
     OPENAI_API_KEY: str = ""
+    OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
 
     LANGCHAIN_TRACING: bool = False
     LANGCHAIN_PROJECT: str = "uoslife-agent"
