@@ -1,7 +1,8 @@
+import uuid
 from datetime import date
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Integer, String, Text
+from sqlalchemy import UUID, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.infrastructure.agent_database.models.base import Base
@@ -10,7 +11,7 @@ from app.infrastructure.agent_database.models.base import Base
 class AnnouncementEmbedding(Base):
     __tablename__ = "announcement_embedding"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     embedding: Mapped[Vector] = mapped_column(Vector(1536))
     document: Mapped[str] = mapped_column(Text)
     chunk_index: Mapped[int] = mapped_column(Integer)
