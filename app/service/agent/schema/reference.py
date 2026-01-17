@@ -7,3 +7,4 @@ class Reference(BaseModel):
     title: str = Field(description="The title of the announcement")
     content: str = Field(description="The text content of the announcement")
     url: str = Field(description="The URL link to the original announcement")
+    score: float = Field(description="The relevance score of the announcement")
