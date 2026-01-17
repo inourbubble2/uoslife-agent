@@ -20,6 +20,7 @@ dependencies = [
     "pgvector>=0.3.0",
     "alembic>=1.14.0",
     "psycopg2-binary>=2.9.9",
+    "langchain-postgres>=0.0.16",
 ]
 
 [project.optional-dependencies]
