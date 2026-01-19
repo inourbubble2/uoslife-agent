@@ -2,7 +2,7 @@ from typing import Any
 
 from langchain_core.messages import HumanMessage, SystemMessage
 
-from app.infrastructure.ai.model import chat_model
+from app.infrastructure.ai import get_chat_model
 from app.service.agent.schema.state import GraphState
 
 SYSTEM_PROMPT = """You are a query rewriter for a vector database search system used by university students.
@@ -18,6 +18,7 @@ Instructions:
 
 
 async def rewriting_node(state: GraphState) -> dict[str, Any]:
+    chat_model = get_chat_model()
     user_query = state["user_query"]
 
     messages = [

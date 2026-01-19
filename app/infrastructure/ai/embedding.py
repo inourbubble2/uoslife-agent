@@ -9,6 +9,3 @@ def get_embeddings() -> Embeddings:
         model=settings.OPENAI_EMBEDDING_MODEL,
         api_key=settings.OPENAI_API_KEY,
     )
-
-
-embedding = get_embeddings()

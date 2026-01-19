@@ -9,6 +9,3 @@ def get_chat_model() -> BaseChatModel:
         model=settings.OPENAI_CHAT_MODEL,
         api_key=settings.OPENAI_API_KEY,
     )
-
-
-chat_model = get_chat_model()
